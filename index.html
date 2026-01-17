@@ -6,13 +6,14 @@
     <title>MAHTAB ALGORITHM HACK</title>
     <style>
         :root {
-            --bg-color: #0f0f13;
-            --card-bg: #1a1a24;
+            --bg-color: #08080a; /* Ultra Dark */
+            --card-bg: rgba(20, 20, 25, 0.6);
             --text-color: #ffffff;
-            --green: #2ecc71;
-            --red: #e74c3c;
-            --violet: #9b59b6;
-            --accent: #f1c40f;
+            --vip-gold: #FFD700;
+            --dragon-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
+            --tiger-grad: linear-gradient(135deg, #5c3a21, #e67e22);
+            --dragon-glow: 0 0 40px rgba(255, 0, 0, 0.6);
+            --tiger-glow: 0 0 40px rgba(230, 126, 34, 0.6);
             --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             --font-mono: 'Courier New', Courier, monospace;
         }
@@ -26,6 +27,7 @@
 
         body {
             background-color: var(--bg-color);
+            background-image: radial-gradient(circle at 50% 0%, #2e1a1a 0%, #000000 70%);
             color: var(--text-color);
             font-family: var(--font-main);
             display: flex;
@@ -43,228 +45,264 @@
             width: 100%;
             height: 100%;
             background-color: var(--bg-color);
+            background-image: radial-gradient(circle, #1a0f0f, #000);
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 999;
-            transition: opacity 0.5s ease;
+            transition: opacity 0.8s ease;
         }
 
         .start-title {
-            font-size: 1.5rem;
-            color: var(--accent);
-            margin-bottom: 30px;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff4d4d, #FFD700, #FFF, #FFD700, #ff4d4d);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
+            margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
+            letter-spacing: 3px;
+            font-weight: 900;
+            animation: shine 3s linear infinite;
         }
+
+        @keyframes shine { to { background-position: 200% center; } }
 
         .start-btn {
-            padding: 20px 60px;
-            font-size: 1.5rem;
-            background: var(--green);
+            padding: 20px 70px;
+            font-size: 1.4rem;
+            background: linear-gradient(90deg, #8b0000, #ff0000);
             color: white;
-            border: none;
+            border: 2px solid var(--vip-gold);
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 0 30px rgba(46, 204, 113, 0.5);
+            box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
             text-transform: uppercase;
-            font-weight: bold;
-            transition: transform 0.2s, box-shadow 0.2s;
+            font-weight: 800;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
-        .start-btn:active {
-            transform: scale(0.95);
-            box-shadow: 0 0 10px rgba(46, 204, 113, 0.5);
-        }
-
+        .start-btn:active { transform: scale(0.95); box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); }
         .hidden { display: none !important; }
 
-        /* MAIN APP */
+        /* MAIN APP HEADER */
         header {
             width: 100%;
-            background: linear-gradient(180deg, #2c3e50 0%, #000000 100%);
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(10px);
             padding: 15px 0;
             text-align: center;
-            border-bottom: 2px solid var(--accent);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
             position: sticky;
             top: 0;
             z-index: 100;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
         h1 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
+            background: linear-gradient(to right, #ff4d4d, #FFD700, #FFF, #FFD700, #ff4d4d);
+            background-size: 200% auto;
+            color: transparent;
+            -webkit-background-clip: text;
+            background-clip: text;
             text-transform: uppercase;
             letter-spacing: 2px;
-            color: var(--accent);
-            text-shadow: 0 0 5px rgba(241, 196, 15, 0.5);
+            font-weight: 800;
+            animation: shine 4s linear infinite;
         }
 
         main {
             width: 95%;
             max-width: 480px;
-            margin-top: 20px;
+            margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 15px;
-            padding-bottom: 20px;
+            gap: 20px;
+            padding-bottom: 30px;
             flex: 1;
         }
 
         /* Timer Bar */
         .timer-container {
             width: 100%;
-            height: 6px;
-            background: #333;
-            border-radius: 3px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
             overflow: hidden;
-            margin-bottom: 5px;
         }
         .timer-bar {
             height: 100%;
-            background: var(--accent);
+            background: var(--vip-gold);
             width: 100%;
             transition: width 1s linear;
+            box-shadow: 0 0 10px var(--vip-gold);
         }
 
         .analysis-text {
-            font-size: 0.85rem;
-            color: var(--green);
+            font-size: 0.8rem;
+            color: var(--vip-gold);
             text-align: center;
-            min-height: 20px;
             font-family: var(--font-mono);
-            animation: blink 1.5s infinite;
-        }
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            opacity: 0.8;
         }
 
         /* COMMON CARD STYLE */
         .hack-card {
             background: var(--card-bg);
-            border-radius: 15px;
-            padding: 15px;
+            border-radius: 20px;
+            padding: 25px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            border: 1px solid #444;
             position: relative;
             overflow: hidden;
-            margin-top: 10px;
-            transition: all 0.3s ease;
-            min-height: 160px; /* Fixed height so it doesn't jump */
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+            min-height: 200px; /* Height badha diya emoji ke liye */
+            transition: transform 0.4s ease, opacity 0.4s ease;
         }
 
-        /* PREDICTION CARD SPECIFIC */
-        .prediction-card .scanner-line {
+        .hack-card::before {
+            content: '';
             position: absolute;
-            width: 100%;
-            height: 2px;
-            background: var(--green);
-            box-shadow: 0 0 10px var(--green);
-            top: 0;
-            left: 0;
-            animation: scan 2s infinite linear;
-            opacity: 0.5;
-            z-index: 1;
-        }
-        @keyframes scan {
-            0% { top: 0%; opacity: 0; }
-            10% { opacity: 0.8; }
-            90% { opacity: 0.8; }
-            100% { top: 100%; opacity: 0; }
+            top: 0; left: 0; right: 0; bottom: 0;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
         }
 
         .prediction-label {
-            font-size: 0.8rem;
-            color: #aaa;
-            margin-bottom: 10px;
-            z-index: 2;
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
         }
 
         .result-display {
             display: flex;
+            flex-direction: column; /* Vertical for Dragon/Tiger */
             align-items: center;
             gap: 15px;
             z-index: 2;
         }
 
-        .color-circle {
-            width: 70px;
-            height: 70px;
+        /* DRAGON & TIGER CIRCLE */
+        .animal-circle {
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
-            font-weight: bold;
-            box-shadow: 0 0 10px rgba(255,255,255,0.1);
+            font-size: 4rem; /* Large Emoji */
+            position: relative;
+            box-shadow: 0 0 30px rgba(0,0,0,0.8);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             border: 3px solid rgba(255,255,255,0.2);
-            transition: all 0.3s ease;
-        }
-        .bg-green { background-color: var(--green); box-shadow: 0 0 15px var(--green); }
-        .bg-red { background-color: var(--red); box-shadow: 0 0 15px var(--red); }
-        .bg-violet { background-color: var(--violet); box-shadow: 0 0 15px var(--violet); }
-
-        .number-display {
-            font-size: 2.2rem;
-            font-weight: bold;
-            font-family: var(--font-mono);
-            width: 50px;
-            text-align: center;
         }
 
-        /* HACKING ANIMATION CARD SPECIFIC */
-        .hacking-text {
-            font-size: 1rem;
-            color: var(--green);
-            font-family: var(--font-mono);
-            margin-bottom: 10px;
+        /* Specific Themes */
+        .dragon-theme {
+            background: var(--dragon-grad);
+            box-shadow: var(--dragon-glow);
+            animation: dragonPulse 2s infinite;
+        }
+        .tiger-theme {
+            background: var(--tiger-grad);
+            box-shadow: var(--tiger-glow);
+            animation: tigerPulse 2s infinite;
+        }
+
+        /* Text Label under Animal */
+        .animal-name {
+            font-size: 1.5rem;
+            font-weight: 900;
             text-transform: uppercase;
-        }
-
-        .matrix-code {
+            letter-spacing: 2px;
             font-family: var(--font-mono);
-            color: rgba(46, 204, 113, 0.7);
-            font-size: 0.8rem;
-            word-break: break-all;
-            text-align: center;
-            line-height: 1.4;
-            width: 100%;
-            height: 80px;
-            overflow: hidden;
-            border-top: 1px solid #333;
-            border-bottom: 1px solid #333;
-            padding: 5px;
-            background: rgba(0,0,0,0.3);
+            color: #fff;
+            text-shadow: 0 0 10px rgba(0,0,0,0.8);
         }
 
-        /* Glitch effect */
-        .glitch-effect {
-            animation: glitch 0.2s infinite;
+        /* Animations */
+        @keyframes dragonPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(255, 0, 0, 0.7); transform: scale(1.05); }
         }
-        @keyframes glitch {
+        @keyframes tigerPulse {
+            0%, 100% { box-shadow: 0 0 30px rgba(230, 126, 34, 0.4); transform: scale(1); }
+            50% { box-shadow: 0 0 50px rgba(230, 126, 34, 0.7); transform: scale(1.05); }
+        }
+
+        .roar-anim {
+            animation: roar 0.5s ease-out forwards;
+        }
+
+        @keyframes roar {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.5) rotate(-5deg); }
+            100% { transform: scale(1) rotate(0deg); }
+        }
+
+        /* Glitch for Animal Name */
+        .glitch-vip {
+            animation: glitchVip 0.1s infinite;
+            color: var(--vip-gold) !important;
+            text-shadow: 2px 0 #ff0055, -2px 0 #00ff9d;
+        }
+        @keyframes glitchVip {
             0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
+            20% { transform: translate(-1px, 1px); }
+            40% { transform: translate(1px, -1px); }
+            60% { transform: translate(-1px, -1px); }
+            80% { transform: translate(1px, 1px); }
             100% { transform: translate(0); }
         }
 
+        /* HACKING CARD */
+        .radar-container {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .radar-ring {
+            position: absolute;
+            border: 2px solid var(--vip-gold);
+            border-radius: 50%;
+            opacity: 0.3;
+        }
+        .r1 { width: 100%; height: 100%; border-style: dashed; animation: spin 4s linear infinite; }
+        .r2 { width: 75%; height: 75%; border-left: transparent; border-right: transparent; animation: spin 3s linear infinite reverse; }
+        .r3 { width: 50%; height: 50%; border-color: #ff4d4d; animation: pulse 1s ease-in-out infinite; }
+        .hacking-text { color: var(--vip-gold); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 1px; text-align: center; margin-top: 20px; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+
         footer {
-            font-size: 0.75rem;
-            color: #555;
+            font-size: 0.7rem;
+            color: rgba(255, 255, 255, 0.3);
             text-align: center;
             padding-top: 20px;
             width: 100%;
             padding-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
     </style>
@@ -289,29 +327,36 @@
                 <div class="timer-bar" id="timer-bar"></div>
             </div>
 
-            <!-- Auto Analysis Text -->
-            <div class="analysis-text" id="analysis-status">INITIALIZING...</div>
+            <!-- VIP Status Text -->
+            <div class="analysis-text" id="analysis-status">SYSTEM STANDBY</div>
 
             <!-- 1. PREDICTION CARD -->
             <div class="hack-card prediction-card" id="prediction-card">
-                <div class="scanner-line"></div>
-                <div class="prediction-label">PREDICTED RESULT</div>
+                <div class="prediction-label">Vip Special Prediction</div>
                 <div class="result-display">
-                    <div class="color-circle" id="color-circle">--</div>
-                    <div class="number-display" id="digit-display">?</div>
+                    <!-- Animal Circle (Emoji) -->
+                    <div class="animal-circle" id="animal-circle">
+                        <span id="animal-emoji">?</span>
+                    </div>
+                    <!-- Animal Name -->
+                    <div class="animal-name" id="animal-name">WAITING...</div>
                 </div>
             </div>
 
-            <!-- 2. HACKING ANIMATION CARD (Initially Hidden) -->
+            <!-- 2. HACKING CARD -->
             <div class="hack-card hacking-card hidden" id="hacking-card">
-                <div class="hacking-text">DECRYPTING NEXT HASH...</div>
-                <div class="matrix-code" id="matrix-code">A1 B4 9F C2 ...</div>
+                <div class="radar-container">
+                    <div class="radar-ring r1"></div>
+                    <div class="radar-ring r2"></div>
+                    <div class="radar-ring r3"></div>
+                </div>
+                <div class="hacking-text">DECRYPTING HASH...</div>
             </div>
 
         </main>
 
         <footer>
-            <p>Version 3.4 (Hacking Mode)</p>
+            <p>D.T ACCESS • Version 4.1</p>
         </footer>
     </div>
 
@@ -323,25 +368,25 @@
 
         const predictionCard = document.getElementById('prediction-card');
         const hackingCard = document.getElementById('hacking-card');
-        const matrixCodeEl = document.getElementById('matrix-code');
+        
+        const animalCircle = document.getElementById('animal-circle');
+        const animalEmoji = document.getElementById('animal-emoji');
+        const animalName = document.getElementById('animal-name');
 
         const timerBarEl = document.getElementById('timer-bar');
         const analysisTextEl = document.getElementById('analysis-status');
-        const colorCircleEl = document.getElementById('color-circle');
-        const digitDisplayEl = document.getElementById('digit-display');
 
         // State
         let currentMinute = -1;
         let isRunning = false;
         let hideTimeout = null;
-        let hackingInterval = null; // For the matrix code animation
 
         const analysisMessages = [
             "CONNECTING TO SERVER...",
-            "FETCHING TIME PATTERN...",
-            "ANALYZING LAST DIGIT...",
-            "CALCULATING PROBABILITY...",
-            "PREDICTION READY..."
+            "FETCHING D-T PATTERN...",
+            "ANALYZING Sp DIGIT...",
+            "VERIFYING HASH...",
+            "PREDICTION LOCKED..."
         ];
 
         // START BUTTON LOGIC
@@ -350,7 +395,7 @@
             setTimeout(() => {
                 startScreen.style.display = 'none';
                 mainContent.classList.remove('hidden');
-            }, 500);
+            }, 800);
 
             isRunning = true;
             updateApp();
@@ -383,78 +428,78 @@
             analysisTextEl.textContent = analysisMessages[msgIndex];
         }
 
-        // --- HACKING ANIMATION FUNCTIONS ---
-        function startHackingAnimation() {
-            hackingCard.classList.remove('hidden');
-            hackingInterval = setInterval(() => {
-                // Generate random hex codes
-                let code = "";
-                for(let i=0; i<30; i++) {
-                    code += Math.floor(Math.random()*16).toString(16).toUpperCase() + " ";
-                }
-                matrixCodeEl.textContent = code;
-            }, 50); // Fast changing numbers
-        }
-
-        function stopHackingAnimation() {
-            if (hackingInterval) clearInterval(hackingInterval);
-            hackingCard.classList.add('hidden');
-        }
-
-        // --- MAIN LOGIC ---
         function processNewMinute(dateObj, hourStr, minStr) {
             const lastDigit = parseInt(minStr.slice(-1));
 
             // 1. STOP HACKING & SHOW RESULT
-            stopHackingAnimation();
+            hackingCard.classList.add('hidden');
             predictionCard.classList.remove('hidden');
 
-            // 2. Calculate Color
-            let colorName = "";
-            let colorClass = "";
-            let colorCode = ""; 
+            // 2. Calculate Dragon or Tiger
+            // Logic: Odd = Dragon, Even = Tiger
+            let animalNameStr = "";
+            let animalEmojiStr = "";
+            let themeClass = "";
 
             if (lastDigit % 2 !== 0) {
-                colorName = "GREEN";
-                colorClass = "bg-green";
-                colorCode = "txt-green";
+                // Odd -> DRAGON
+                animalNameStr = "DRAGON";
+                animalEmojiStr = "🐉";
+                themeClass = "dragon-theme";
             } else {
-                colorName = "RED";
-                colorClass = "bg-red";
-                colorCode = "txt-red";
+                // Even -> TIGER
+                animalNameStr = "TIGER";
+                animalEmojiStr = "🐯";
+                themeClass = "tiger-theme";
             }
 
-            // Update UI
-            colorCircleEl.className = `color-circle ${colorClass}`;
-            colorCircleEl.textContent = colorName;
+            // Update UI Text
+            animalName.classList.add('glitch-vip');
             
-            // 3. Animate the Number
-            digitDisplayEl.classList.add('glitch-effect');
+            // 3. Shuffle Animation
             let shuffleCount = 0;
+            const animals = ["🐉", "🐯", "💀", "🔮"]; // Random shuffle items
+            const names = ["DRAGON", "TIGER", "ERROR", "SCAN"];
             
             const shuffleInterval = setInterval(() => {
-                digitDisplayEl.textContent = Math.floor(Math.random() * 10);
+                // Randomize visual
+                const randIdx = Math.floor(Math.random() * animals.length);
+                animalEmoji.textContent = animals[randIdx];
+                animalName.textContent = names[randIdx];
+                
+                // Random color flicker
+                if(Math.random() > 0.5) {
+                    animalCircle.style.boxShadow = "0 0 10px #fff";
+                } else {
+                    animalCircle.style.boxShadow = "none";
+                }
+
                 shuffleCount++;
 
                 if (shuffleCount > 15) {
                     clearInterval(shuffleInterval);
-                    digitDisplayEl.classList.remove('glitch-effect');
-                    digitDisplayEl.textContent = lastDigit;
-                    digitDisplayEl.className = `number-display ${colorCode}`;
                     
-                    // Flash effect
-                    digitDisplayEl.style.textShadow = `0 0 20px ${colorCode === 'txt-green' ? '#2ecc71' : '#e74c3c'}`;
+                    // SET RESULT
+                    animalName.classList.remove('glitch-vip');
+                    animalEmoji.textContent = animalEmojiStr;
+                    animalName.textContent = animalNameStr;
+                    
+                    // Apply Theme
+                    animalCircle.className = `animal-circle ${themeClass}`;
+                    
+                    // ROAR ANIMATION
+                    animalCircle.classList.add('roar-anim');
                     setTimeout(() => {
-                        digitDisplayEl.style.textShadow = "none";
+                        animalCircle.classList.remove('roar-anim');
                     }, 500);
 
-                    // 4. START 10 SECOND TIMER TO HIDE RESULT & START HACKING
+                    // 4. 10 SEC TIMER -> HIDE RESULT & SHOW HACKING
                     if (hideTimeout) clearTimeout(hideTimeout);
                     
                     hideTimeout = setTimeout(() => {
-                        predictionCard.classList.add('hidden'); // Hide Result
-                        startHackingAnimation(); // Start Hacking
-                    }, 10000); // 10 seconds
+                        predictionCard.classList.add('hidden');
+                        hackingCard.classList.remove('hidden');
+                    }, 10000); 
                 }
             }, 50);
         }
