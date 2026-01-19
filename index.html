@@ -3,32 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAHTAB ALGORITHM HACK</title>
+    <title>MAHTAB VIP HACK</title>
     <style>
+        /* VIP PREMIUM THEME (Same as before) */
         :root {
-            --bg-color: #08080a; /* Ultra Dark */
-            --card-bg: rgba(20, 20, 25, 0.6);
-            --text-color: #ffffff;
-            --vip-gold: #FFD700;
-            --dragon-grad: linear-gradient(135deg, #8b0000, #ff4d4d);
-            --tiger-grad: linear-gradient(135deg, #5c3a21, #e67e22);
-            --dragon-glow: 0 0 40px rgba(255, 0, 0, 0.6);
-            --tiger-glow: 0 0 40px rgba(230, 126, 34, 0.6);
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --bg-color: #050505;
+            --bg-gradient: radial-gradient(circle at top center, #1a1a2e, #000000);
+            --card-bg: rgba(20, 20, 30, 0.7);
+            --glass-border: 1px solid rgba(255, 215, 0, 0.3);
+            --gold: #FFD700;
+            --gold-glow: 0 0 15px rgba(255, 215, 0, 0.4);
+            --green-neon: #39ff14;
+            --red-neon: #ff073a;
+            --blue-neon: #00f3ff;
+            --font-main: 'Orbitron', sans-serif;
             --font-mono: 'Courier New', Courier, monospace;
         }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            user-select: none;
-        }
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
 
         body {
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle at 50% 0%, #2e1a1a 0%, #000000 70%);
-            color: var(--text-color);
+            background: var(--bg-gradient);
+            color: #ffffff;
             font-family: var(--font-main);
             display: flex;
             flex-direction: column;
@@ -40,470 +38,358 @@
         /* START SCREEN */
         #start-screen {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--bg-color);
-            background-image: radial-gradient(circle, #1a0f0f, #000);
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 999;
             transition: opacity 0.8s ease;
+            border: 2px solid var(--gold);
         }
 
         .start-title {
-            font-size: 1.8rem;
-            background: linear-gradient(45deg, #ff4d4d, #FFD700, #FFF, #FFD700, #ff4d4d);
-            background-size: 200% auto;
-            color: transparent;
+            font-size: 2rem;
+            background: linear-gradient(to right, #FFD700, #fff, #FFD700);
             -webkit-background-clip: text;
             background-clip: text;
+            color: transparent;
             margin-bottom: 40px;
             text-transform: uppercase;
             letter-spacing: 3px;
-            font-weight: 900;
-            animation: shine 3s linear infinite;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            text-align: center;
+            font-weight: 700;
         }
-
-        @keyframes shine { to { background-position: 200% center; } }
 
         .start-btn {
-            padding: 20px 70px;
-            font-size: 1.4rem;
-            background: linear-gradient(90deg, #8b0000, #ff0000);
-            color: white;
-            border: 2px solid var(--vip-gold);
-            border-radius: 50px;
+            padding: 25px 80px;
+            font-size: 1.2rem;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            color: #000;
+            border: none;
+            border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.3);
+            box-shadow: 0 0 20px var(--gold);
             text-transform: uppercase;
-            font-weight: 800;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-family: var(--font-main);
+            transition: transform 0.2s;
         }
+        .start-btn:active { transform: scale(0.95); }
 
-        .start-btn:active { transform: scale(0.95); box-shadow: 0 0 10px rgba(255, 0, 0, 0.1); }
         .hidden { display: none !important; }
 
-        /* MAIN APP HEADER */
+        /* HEADER */
         header {
             width: 100%;
-            background: rgba(0, 0, 0, 0.8);
+            background: rgba(0,0,0,0.8);
             backdrop-filter: blur(10px);
             padding: 15px 0;
             text-align: center;
-            border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+            border-bottom: 1px solid var(--gold);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
             position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            top: 0; z-index: 100;
         }
-
         h1 {
-            font-size: 1.1rem;
-            background: linear-gradient(to right, #ff4d4d, #FFD700, #FFF, #FFD700, #ff4d4d);
-            background-size: 200% auto;
-            color: transparent;
-            -webkit-background-clip: text;
-            background-clip: text;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-weight: 800;
-            animation: shine 4s linear infinite;
+            font-size: 1.4rem; color: var(--gold);
+            letter-spacing: 3px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); margin: 0;
+        }
+        .vip-badge {
+            font-size: 0.6rem; background: var(--gold); color: #000;
+            padding: 2px 8px; border-radius: 10px; font-weight: bold;
+            display: inline-block; margin-top: 5px;
         }
 
+        /* MAIN */
         main {
-            width: 95%;
-            max-width: 480px;
-            margin-top: 25px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            padding-bottom: 30px;
-            flex: 1;
+            width: 90%; max-width: 450px;
+            margin-top: 30px;
+            display: flex; flex-direction: column; gap: 20px;
+            padding-bottom: 40px; flex: 1;
         }
 
         /* Timer Bar */
         .timer-container {
-            width: 100%;
-            height: 4px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 2px;
-            overflow: hidden;
+            width: 100%; height: 8px; background: #222;
+            border-radius: 4px; overflow: hidden;
+            border: 1px solid #444; box-shadow: inset 0 0 10px #000;
         }
         .timer-bar {
             height: 100%;
-            background: var(--vip-gold);
+            background: linear-gradient(90deg, #FFD700, #ff4500);
             width: 100%;
+            box-shadow: 0 0 10px var(--gold);
             transition: width 1s linear;
-            box-shadow: 0 0 10px var(--vip-gold);
         }
 
         .analysis-text {
-            font-size: 0.8rem;
-            color: var(--vip-gold);
-            text-align: center;
-            font-family: var(--font-mono);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            opacity: 0.8;
+            font-size: 0.8rem; color: var(--blue-neon);
+            text-align: center; min-height: 25px;
+            font-family: var(--font-mono); letter-spacing: 1px;
+            border: 1px dashed rgba(0, 243, 255, 0.3);
+            padding: 5px; background: rgba(0, 243, 255, 0.05);
+            border-radius: 4px;
         }
 
-        /* COMMON CARD STYLE */
+        /* CARD STYLE */
         .hack-card {
             background: var(--card-bg);
-            border-radius: 20px;
-            padding: 25px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(15px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
-            min-height: 200px; /* Height badha diya emoji ke liye */
-            transition: transform 0.4s ease, opacity 0.4s ease;
+            border-radius: 15px;
+            border: var(--glass-border);
+            padding: 25px;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            box-shadow: 0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 215, 0, 0.05);
+            position: relative; overflow: hidden;
+            min-height: 180px;
+            transition: all 0.5s ease;
         }
-
         .hack-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
-            border-radius: 20px;
-            padding: 1px;
-            background: linear-gradient(135deg, rgba(255,255,255,0.3), rgba(255,255,255,0));
-            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
+            content: ''; position: absolute; top: 0; left: 0;
+            width: 20px; height: 20px;
+            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
+            border-radius: 5px 0 0 0;
+        }
+        .hack-card::after {
+            content: ''; position: absolute; bottom: 0; right: 0;
+            width: 20px; height: 20px;
+            border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold);
+            border-radius: 0 0 5px 0;
         }
 
         .prediction-label {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.5);
-            margin-bottom: 20px;
-            letter-spacing: 2px;
-            text-transform: uppercase;
+            font-size: 0.9rem; color: #aaa; margin-bottom: 20px;
+            letter-spacing: 2px; text-transform: uppercase;
+            border-bottom: 1px solid #333; padding-bottom: 5px;
+            width: 100%; text-align: center;
         }
 
         .result-display {
-            display: flex;
-            flex-direction: column; /* Vertical for Dragon/Tiger */
-            align-items: center;
-            gap: 15px;
-            z-index: 2;
+            display: flex; align-items: center; gap: 20px;
         }
 
-        /* DRAGON & TIGER CIRCLE */
-        .animal-circle {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem; /* Large Emoji */
-            position: relative;
-            box-shadow: 0 0 30px rgba(0,0,0,0.8);
-            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            border: 3px solid rgba(255,255,255,0.2);
+        .color-circle {
+            width: 80px; height: 80px; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 0.8rem; font-weight: bold;
+            box-shadow: 0 0 20px rgba(255,255,255,0.1);
+            border: 4px solid rgba(255,255,255,0.1);
+            transition: all 0.3s ease; position: relative;
         }
+        .bg-green { background: radial-gradient(circle, #39ff14, #006400); box-shadow: 0 0 25px #39ff14; border-color: #fff; color: #000; }
+        .bg-red { background: radial-gradient(circle, #ff073a, #8b0000); box-shadow: 0 0 25px #ff073a; border-color: #fff; color: #fff; }
 
-        /* Specific Themes */
-        .dragon-theme {
-            background: var(--dragon-grad);
-            box-shadow: var(--dragon-glow);
-            animation: dragonPulse 2s infinite;
-        }
-        .tiger-theme {
-            background: var(--tiger-grad);
-            box-shadow: var(--tiger-glow);
-            animation: tigerPulse 2s infinite;
-        }
-
-        /* Text Label under Animal */
-        .animal-name {
-            font-size: 1.5rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            font-family: var(--font-mono);
-            color: #fff;
-            text-shadow: 0 0 10px rgba(0,0,0,0.8);
-        }
-
-        /* Animations */
-        @keyframes dragonPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(255, 0, 0, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 50px rgba(255, 0, 0, 0.7); transform: scale(1.05); }
-        }
-        @keyframes tigerPulse {
-            0%, 100% { box-shadow: 0 0 30px rgba(230, 126, 34, 0.4); transform: scale(1); }
-            50% { box-shadow: 0 0 50px rgba(230, 126, 34, 0.7); transform: scale(1.05); }
-        }
-
-        .roar-anim {
-            animation: roar 0.5s ease-out forwards;
-        }
-
-        @keyframes roar {
-            0% { transform: scale(1) rotate(0deg); }
-            50% { transform: scale(1.5) rotate(-5deg); }
-            100% { transform: scale(1) rotate(0deg); }
-        }
-
-        /* Glitch for Animal Name */
-        .glitch-vip {
-            animation: glitchVip 0.1s infinite;
-            color: var(--vip-gold) !important;
-            text-shadow: 2px 0 #ff0055, -2px 0 #00ff9d;
-        }
-        @keyframes glitchVip {
-            0% { transform: translate(0); }
-            20% { transform: translate(-1px, 1px); }
-            40% { transform: translate(1px, -1px); }
-            60% { transform: translate(-1px, -1px); }
-            80% { transform: translate(1px, 1px); }
-            100% { transform: translate(0); }
+        .number-display {
+            font-size: 4rem; font-weight: bold; font-family: 'Orbitron', sans-serif;
+            width: 80px; text-align: center;
+            text-shadow: 0 0 20px rgba(255,255,255,0.5);
         }
 
         /* HACKING CARD */
-        .radar-container {
-            position: relative;
-            width: 120px;
-            height: 120px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .hacking-text {
+            font-size: 1rem; color: var(--gold); font-family: var(--font-main);
+            margin-bottom: 15px; text-transform: uppercase;
+            animation: pulse 1s infinite alternate;
         }
-        .radar-ring {
-            position: absolute;
-            border: 2px solid var(--vip-gold);
-            border-radius: 50%;
-            opacity: 0.3;
-        }
-        .r1 { width: 100%; height: 100%; border-style: dashed; animation: spin 4s linear infinite; }
-        .r2 { width: 75%; height: 75%; border-left: transparent; border-right: transparent; animation: spin 3s linear infinite reverse; }
-        .r3 { width: 50%; height: 50%; border-color: #ff4d4d; animation: pulse 1s ease-in-out infinite; }
-        .hacking-text { color: var(--vip-gold); font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 1px; text-align: center; margin-top: 20px; }
-        @keyframes spin { 100% { transform: rotate(360deg); } }
-        @keyframes pulse { 0%, 100% { transform: scale(1); opacity: 0.5; } 50% { transform: scale(1.1); opacity: 1; } }
+        @keyframes pulse { from { text-shadow: 0 0 5px var(--gold); } to { text-shadow: 0 0 20px var(--gold); } }
 
-        footer {
-            font-size: 0.7rem;
-            color: rgba(255, 255, 255, 0.3);
-            text-align: center;
-            padding-top: 20px;
-            width: 100%;
-            padding-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .matrix-code {
+            font-family: var(--font-mono); color: rgba(57, 255, 20, 0.8);
+            font-size: 0.75rem; word-break: break-all; text-align: center;
+            line-height: 1.6; width: 100%; height: 90px; overflow: hidden;
+            background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 5px;
+            text-shadow: 0 0 5px #39ff14;
         }
 
+        .glitch-effect { animation: glitchVip 0.3s infinite; }
+        @keyframes glitchVip {
+            0% { transform: translate(0) skew(0deg); opacity: 1; }
+            20% { transform: translate(-2px, 2px) skew(-10deg); }
+            40% { transform: translate(2px, -2px) skew(10deg); }
+            60% { transform: translate(-2px, -2px) skew(-5deg); }
+            80% { transform: translate(2px, 2px) skew(5deg); }
+            100% { transform: translate(0) skew(0deg); }
+        }
+
+        footer { font-size: 0.7rem; color: #666; text-align: center; padding-bottom: 20px; width: 100%; }
     </style>
 </head>
 <body>
 
-    <!-- START SCREEN -->
     <div id="start-screen">
-        <h1 class="start-title">MAHTAB ALGORITHM</h1>
-        <button class="start-btn" id="start-btn">START HACK</button>
+        <h1 class="start-title">MAHTAB<br><span style="font-size:1.5rem">ALGORITHM VIP</span></h1>
+        <button class="start-btn" id="start-btn">ACCESS SYSTEM</button>
     </div>
 
-    <!-- MAIN CONTENT -->
     <div id="main-content" class="hidden">
         <header>
-            <h1>MAHTAB ALGORITHM HACK</h1>
+            <h1>MAHTAB VIP</h1>
+            <div class="vip-badge">3x SECURE PREDICTION</div>
         </header>
 
         <main>
-            <!-- Timer Progress -->
             <div class="timer-container">
                 <div class="timer-bar" id="timer-bar"></div>
             </div>
 
-            <!-- VIP Status Text -->
-            <div class="analysis-text" id="analysis-status">SYSTEM STANDBY</div>
+            <div class="analysis-text" id="analysis-status">CONNECTING TO VIP SERVER...</div>
 
-            <!-- 1. PREDICTION CARD -->
+            <!-- PREDICTION CARD -->
             <div class="hack-card prediction-card" id="prediction-card">
-                <div class="prediction-label">Vip Special Prediction</div>
+                <div class="prediction-label">PREDICTED RESULT (SEC)</div>
                 <div class="result-display">
-                    <!-- Animal Circle (Emoji) -->
-                    <div class="animal-circle" id="animal-circle">
-                        <span id="animal-emoji">?</span>
-                    </div>
-                    <!-- Animal Name -->
-                    <div class="animal-name" id="animal-name">WAITING...</div>
+                    <div class="color-circle" id="color-circle">--</div>
+                    <div class="number-display" id="digit-display">?</div>
                 </div>
             </div>
 
-            <!-- 2. HACKING CARD -->
+            <!-- HACKING CARD -->
             <div class="hack-card hacking-card hidden" id="hacking-card">
-                <div class="radar-container">
-                    <div class="radar-ring r1"></div>
-                    <div class="radar-ring r2"></div>
-                    <div class="radar-ring r3"></div>
-                </div>
-                <div class="hacking-text">DECRYPTING HASH...</div>
+                <div class="hacking-text">DECRYPTING NEXT BLOCK...</div>
+                <div class="matrix-code" id="matrix-code">INITIALIZING...</div>
             </div>
-
         </main>
 
         <footer>
-            <p>D.T ACCESS • Version 4.1</p>
+            <p>MAHTAB VIP PROTOCOL v5.0<br>SECOND-BASED ALGORITHM</p>
         </footer>
     </div>
 
     <script>
-        // DOM Elements
         const startScreen = document.getElementById('start-screen');
         const mainContent = document.getElementById('main-content');
         const startBtn = document.getElementById('start-btn');
-
         const predictionCard = document.getElementById('prediction-card');
         const hackingCard = document.getElementById('hacking-card');
-        
-        const animalCircle = document.getElementById('animal-circle');
-        const animalEmoji = document.getElementById('animal-emoji');
-        const animalName = document.getElementById('animal-name');
-
+        const matrixCodeEl = document.getElementById('matrix-code');
         const timerBarEl = document.getElementById('timer-bar');
         const analysisTextEl = document.getElementById('analysis-status');
+        const colorCircleEl = document.getElementById('color-circle');
+        const digitDisplayEl = document.getElementById('digit-display');
 
-        // State
-        let currentMinute = -1;
         let isRunning = false;
-        let hideTimeout = null;
+        let hackingInterval = null;
+        let currentCycle = -1; // 0: 0-10s, 1: 10-15s, 2: 15-25s, 3: 25-30s, 4: 30-40s, 5: 40-60s
 
         const analysisMessages = [
-            "CONNECTING TO SERVER...",
-            "FETCHING D-T PATTERN...",
-            "ANALYZING Sp DIGIT...",
-            "VERIFYING HASH...",
-            "PREDICTION LOCKED..."
+            "SYNCING WITH TIME SERVER...",
+            "ANALYZING SECOND HASH...",
+            "CALCULATING PROBABILITY...",
+            "DECRYPTING PATTERN...",
+            "RESULT READY..."
         ];
 
-        // START BUTTON LOGIC
         startBtn.addEventListener('click', () => {
             startScreen.style.opacity = '0';
-            setTimeout(() => {
-                startScreen.style.display = 'none';
-                mainContent.classList.remove('hidden');
-            }, 800);
-
+            setTimeout(() => { startScreen.style.display = 'none'; mainContent.classList.remove('hidden'); }, 800);
             isRunning = true;
             updateApp();
             setInterval(updateApp, 50);
         });
 
-        // Main Update Function
-        function updateApp() {
-            if (!isRunning) return;
-
-            const now = new Date();
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = now.getSeconds();
-            const ms = now.getMilliseconds();
-
-            // Update Progress Bar
-            const totalSeconds = seconds + (ms / 1000);
-            const percentage = (totalSeconds / 60) * 100;
-            timerBarEl.style.width = `${100 - percentage}%`; 
-
-            // Logic Update
-            if (now.getMinutes() !== currentMinute) {
-                currentMinute = now.getMinutes();
-                processNewMinute(now, hours, minutes);
-            }
-
-            // Analysis Text Animation
-            const msgIndex = Math.floor(now.getTime() / 2000) % analysisMessages.length;
-            analysisTextEl.textContent = analysisMessages[msgIndex];
+        function startHackingAnimation() {
+            hackingCard.classList.remove('hidden');
+            hackingInterval = setInterval(() => {
+                const chars = "ABCDEF0123456789";
+                let code = "";
+                for(let i=0; i<40; i++) {
+                    if(i % 5 === 0) code += "<span style='color:#FFD700'>VIP</span> ";
+                    else code += chars.charAt(Math.floor(Math.random() * chars.length)) + " ";
+                }
+                matrixCodeEl.innerHTML = code;
+            }, 60);
         }
 
-        function processNewMinute(dateObj, hourStr, minStr) {
-            const lastDigit = parseInt(minStr.slice(-1));
-
-            // 1. STOP HACKING & SHOW RESULT
+        function stopHackingAnimation() {
+            if (hackingInterval) clearInterval(hackingInterval);
             hackingCard.classList.add('hidden');
+        }
+
+        function triggerResult(predictedSecond) {
+            stopHackingAnimation();
             predictionCard.classList.remove('hidden');
 
-            // 2. Calculate Dragon or Tiger
-            // Logic: Odd = Dragon, Even = Tiger
-            let animalNameStr = "";
-            let animalEmojiStr = "";
-            let themeClass = "";
+            // Logic: Odd = Green, Even = Red
+            const isOdd = predictedSecond % 2 !== 0;
+            let colorName = isOdd ? "GREEN" : "RED";
+            let colorClass = isOdd ? "bg-green" : "bg-red";
+            let colorCode = isOdd ? "#39ff14" : "#ff073a";
 
-            if (lastDigit % 2 !== 0) {
-                // Odd -> DRAGON
-                animalNameStr = "DRAGON";
-                animalEmojiStr = "🐉";
-                themeClass = "dragon-theme";
-            } else {
-                // Even -> TIGER
-                animalNameStr = "TIGER";
-                animalEmojiStr = "🐯";
-                themeClass = "tiger-theme";
-            }
+            // Update Circle
+            colorCircleEl.className = `color-circle ${colorClass}`;
+            colorCircleEl.textContent = colorName;
 
-            // Update UI Text
-            animalName.classList.add('glitch-vip');
-            
-            // 3. Shuffle Animation
+            // Number Animation
+            digitDisplayEl.classList.add('glitch-effect');
             let shuffleCount = 0;
-            const animals = ["🐉", "🐯", "💀", "🔮"]; // Random shuffle items
-            const names = ["DRAGON", "TIGER", "ERROR", "SCAN"];
-            
             const shuffleInterval = setInterval(() => {
-                // Randomize visual
-                const randIdx = Math.floor(Math.random() * animals.length);
-                animalEmoji.textContent = animals[randIdx];
-                animalName.textContent = names[randIdx];
-                
-                // Random color flicker
-                if(Math.random() > 0.5) {
-                    animalCircle.style.boxShadow = "0 0 10px #fff";
-                } else {
-                    animalCircle.style.boxShadow = "none";
-                }
-
+                digitDisplayEl.textContent = Math.floor(Math.random() * 10);
                 shuffleCount++;
-
-                if (shuffleCount > 15) {
+                if (shuffleCount > 20) {
                     clearInterval(shuffleInterval);
-                    
-                    // SET RESULT
-                    animalName.classList.remove('glitch-vip');
-                    animalEmoji.textContent = animalEmojiStr;
-                    animalName.textContent = animalNameStr;
-                    
-                    // Apply Theme
-                    animalCircle.className = `animal-circle ${themeClass}`;
-                    
-                    // ROAR ANIMATION
-                    animalCircle.classList.add('roar-anim');
-                    setTimeout(() => {
-                        animalCircle.classList.remove('roar-anim');
-                    }, 500);
-
-                    // 4. 10 SEC TIMER -> HIDE RESULT & SHOW HACKING
-                    if (hideTimeout) clearTimeout(hideTimeout);
-                    
-                    hideTimeout = setTimeout(() => {
-                        predictionCard.classList.add('hidden');
-                        hackingCard.classList.remove('hidden');
-                    }, 10000); 
+                    digitDisplayEl.classList.remove('glitch-effect');
+                    digitDisplayEl.textContent = predictedSecond;
+                    digitDisplayEl.style.color = colorCode;
+                    digitDisplayEl.style.textShadow = `0 0 40px ${colorCode}, 0 0 10px #fff`;
+                    setTimeout(() => { digitDisplayEl.style.textShadow = "none"; }, 800);
                 }
             }, 50);
         }
 
+        function updateApp() {
+            if (!isRunning) return;
+            const now = new Date();
+            const s = now.getSeconds();
+            const ms = now.getMilliseconds();
+
+            // Progress Bar (0 to 60 seconds loop)
+            const totalMs = (s * 1000) + ms;
+            const percentage = (totalMs / 60000) * 100;
+            timerBarEl.style.width = `${100 - percentage}%`;
+
+            // Analysis Text
+            const msgIndex = Math.floor(now.getTime() / 2500) % analysisMessages.length;
+            analysisTextEl.textContent = analysisMessages[msgIndex];
+
+            // --- CYCLE LOGIC (3 Results per Minute) ---
+            // Cycle 0: 0 - 10s : Show Result for 0
+            // Cycle 1: 10 - 15s : Hide/Hack
+            // Cycle 2: 15 - 25s : Show Result for 15
+            // Cycle 3: 25 - 30s : Hide/Hack
+            // Cycle 4: 30 - 40s : Show Result for 30
+            // Cycle 5: 40 - 60s : Hide/Hack
+
+            let newCycle = 5; // Default to Hide
+            let targetSecond = -1;
+
+            if (s >= 0 && s < 10) { newCycle = 0; targetSecond = 0; }
+            else if (s >= 10 && s < 15) { newCycle = 1; }
+            else if (s >= 15 && s < 25) { newCycle = 2; targetSecond = 15; }
+            else if (s >= 25 && s < 30) { newCycle = 3; }
+            else if (s >= 30 && s < 40) { newCycle = 4; targetSecond = 30; }
+            else { newCycle = 5; }
+
+            // Detect Cycle Change
+            if (newCycle !== currentCycle) {
+                currentCycle = newCycle;
+
+                if (targetSecond !== -1) {
+                    // Start Show Result
+                    triggerResult(targetSecond);
+                } else {
+                    // Hide & Hack
+                    predictionCard.classList.add('hidden');
+                    startHackingAnimation();
+                }
+            }
+        }
     </script>
 </body>
 </html>
