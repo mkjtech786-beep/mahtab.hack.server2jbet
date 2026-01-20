@@ -3,393 +3,463 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAHTAB VIP HACK</title>
+    <title>MAHTAB ALGORITHM HACK</title>
     <style>
-        /* VIP PREMIUM THEME (Same as before) */
         :root {
-            --bg-color: #050505;
-            --bg-gradient: radial-gradient(circle at top center, #1a1a2e, #000000);
-            --card-bg: rgba(20, 20, 30, 0.7);
-            --glass-border: 1px solid rgba(255, 215, 0, 0.3);
-            --gold: #FFD700;
-            --gold-glow: 0 0 15px rgba(255, 215, 0, 0.4);
-            --green-neon: #39ff14;
-            --red-neon: #ff073a;
-            --blue-neon: #00f3ff;
-            --font-main: 'Orbitron', sans-serif;
-            --font-mono: 'Courier New', Courier, monospace;
+            --bg-color: #000000;
+            --card-bg: rgba(20, 20, 20, 0.9);
+            --text-color: #ffffff;
+            --green: #2ecc71;
+            --red: #e74c3c;
+            --violet: #9b59b6;
+            --accent: #f1c40f;
+            --hack-green: #0f0;
+            --font-main: 'Courier New', Courier, monospace; /* Hacker Font */
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
-
-        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            user-select: none;
+        }
 
         body {
-            background: var(--bg-gradient);
-            color: #ffffff;
+            background-color: var(--bg-color);
+            color: var(--text-color);
             font-family: var(--font-main);
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            overflow: hidden; /* Prevent scroll on matrix effect */
         }
 
-        /* START SCREEN */
+        /* --- MATRIX RAIN BACKGROUND --- */
+        #matrix-container {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: 0;
+            opacity: 0.2; /* Subtle background */
+            pointer-events: none;
+        }
+
+        /* --- START SCREEN --- */
         #start-screen {
             position: fixed;
             top: 0; left: 0;
             width: 100%; height: 100%;
-            background: #000;
+            background-color: #000;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             z-index: 999;
-            transition: opacity 0.8s ease;
-            border: 2px solid var(--gold);
         }
 
         .start-title {
             font-size: 2rem;
-            background: linear-gradient(to right, #FFD700, #fff, #FFD700);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
+            color: var(--hack-green);
             margin-bottom: 40px;
             text-transform: uppercase;
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-            text-align: center;
-            font-weight: 700;
+            text-shadow: 0 0 10px var(--hack-green);
+            animation: glitch 1s infinite;
         }
 
         .start-btn {
-            padding: 25px 80px;
-            font-size: 1.2rem;
-            background: linear-gradient(45deg, #FFD700, #FFA500);
-            color: #000;
-            border: none;
+            padding: 20px 50px;
+            font-size: 1.5rem;
+            background: transparent;
+            color: var(--hack-green);
+            border: 2px solid var(--hack-green);
             border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 0 20px var(--gold);
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 2px;
             font-family: var(--font-main);
-            transition: transform 0.2s;
+            text-transform: uppercase;
+            box-shadow: 0 0 15px var(--hack-green);
+            transition: all 0.2s;
         }
-        .start-btn:active { transform: scale(0.95); }
 
-        .hidden { display: none !important; }
+        .start-btn:active {
+            background: var(--hack-green);
+            color: #000;
+        }
 
-        /* HEADER */
+        /* --- MAIN APP UI --- */
+        #main-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            z-index: 10;
+            position: relative;
+        }
+
         header {
             width: 100%;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(10px);
             padding: 15px 0;
             text-align: center;
-            border-bottom: 1px solid var(--gold);
-            box-shadow: 0 5px 20px rgba(0,0,0,0.8);
-            position: sticky;
-            top: 0; z-index: 100;
+            background: rgba(0,0,0,0.8);
+            border-bottom: 1px solid var(--hack-green);
         }
+
         h1 {
-            font-size: 1.4rem; color: var(--gold);
-            letter-spacing: 3px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.6); margin: 0;
-        }
-        .vip-badge {
-            font-size: 0.6rem; background: var(--gold); color: #000;
-            padding: 2px 8px; border-radius: 10px; font-weight: bold;
-            display: inline-block; margin-top: 5px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+            text-shadow: 0 0 5px var(--accent);
         }
 
-        /* MAIN */
-        main {
-            width: 90%; max-width: 450px;
-            margin-top: 30px;
-            display: flex; flex-direction: column; gap: 20px;
-            padding-bottom: 40px; flex: 1;
+        /* Container for switching views */
+        .view-container {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
         }
 
-        /* Timer Bar */
-        .timer-container {
-            width: 100%; height: 8px; background: #222;
-            border-radius: 4px; overflow: hidden;
-            border: 1px solid #444; box-shadow: inset 0 0 10px #000;
-        }
-        .timer-bar {
-            height: 100%;
-            background: linear-gradient(90deg, #FFD700, #ff4500);
+        /* --- VIEW 1: RESULT CARD --- */
+        .result-view {
+            display: none;
+            flex-direction: column;
+            align-items: center;
             width: 100%;
-            box-shadow: 0 0 10px var(--gold);
-            transition: width 1s linear;
+            animation: fadeIn 0.5s;
         }
 
-        .analysis-text {
-            font-size: 0.8rem; color: var(--blue-neon);
-            text-align: center; min-height: 25px;
-            font-family: var(--font-mono); letter-spacing: 1px;
-            border: 1px dashed rgba(0, 243, 255, 0.3);
-            padding: 5px; background: rgba(0, 243, 255, 0.05);
-            border-radius: 4px;
-        }
-
-        /* CARD STYLE */
-        .hack-card {
+        .prediction-card {
             background: var(--card-bg);
-            backdrop-filter: blur(15px);
+            border: 2px solid var(--hack-green);
             border-radius: 15px;
-            border: var(--glass-border);
-            padding: 25px;
-            display: flex; flex-direction: column;
-            align-items: center; justify-content: center;
-            box-shadow: 0 0 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(255, 215, 0, 0.05);
-            position: relative; overflow: hidden;
-            min-height: 180px;
-            transition: all 0.5s ease;
-        }
-        .hack-card::before {
-            content: ''; position: absolute; top: 0; left: 0;
-            width: 20px; height: 20px;
-            border-top: 2px solid var(--gold); border-left: 2px solid var(--gold);
-            border-radius: 5px 0 0 0;
-        }
-        .hack-card::after {
-            content: ''; position: absolute; bottom: 0; right: 0;
-            width: 20px; height: 20px;
-            border-bottom: 2px solid var(--gold); border-right: 2px solid var(--gold);
-            border-radius: 0 0 5px 0;
+            padding: 40px 20px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
+            position: relative;
         }
 
         .prediction-label {
-            font-size: 0.9rem; color: #aaa; margin-bottom: 20px;
-            letter-spacing: 2px; text-transform: uppercase;
-            border-bottom: 1px solid #333; padding-bottom: 5px;
-            width: 100%; text-align: center;
+            font-size: 1rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .result-display {
-            display: flex; align-items: center; gap: 20px;
+        .result-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            /* No gap needed now */
         }
 
         .color-circle {
-            width: 80px; height: 80px; border-radius: 50%;
+            width: 130px; height: 130px; /* Bigger Circle */
+            border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
-            font-size: 0.8rem; font-weight: bold;
-            box-shadow: 0 0 20px rgba(255,255,255,0.1);
-            border: 4px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease; position: relative;
-        }
-        .bg-green { background: radial-gradient(circle, #39ff14, #006400); box-shadow: 0 0 25px #39ff14; border-color: #fff; color: #000; }
-        .bg-red { background: radial-gradient(circle, #ff073a, #8b0000); box-shadow: 0 0 25px #ff073a; border-color: #fff; color: #fff; }
-
-        .number-display {
-            font-size: 4rem; font-weight: bold; font-family: 'Orbitron', sans-serif;
-            width: 80px; text-align: center;
-            text-shadow: 0 0 20px rgba(255,255,255,0.5);
+            font-size: 1.8rem; font-weight: bold; /* Larger Text */
+            border: 5px solid rgba(255,255,255,0.2);
+            box-shadow: 0 0 40px currentColor; /* Bigger Glow */
         }
 
-        /* HACKING CARD */
-        .hacking-text {
-            font-size: 1rem; color: var(--gold); font-family: var(--font-main);
-            margin-bottom: 15px; text-transform: uppercase;
-            animation: pulse 1s infinite alternate;
-        }
-        @keyframes pulse { from { text-shadow: 0 0 5px var(--gold); } to { text-shadow: 0 0 20px var(--gold); } }
+        .bg-green { background-color: var(--green); color: white; }
+        .bg-red { background-color: var(--red); color: white; }
+        .bg-violet { background-color: var(--violet); color: white; }
 
-        .matrix-code {
-            font-family: var(--font-mono); color: rgba(57, 255, 20, 0.8);
-            font-size: 0.75rem; word-break: break-all; text-align: center;
-            line-height: 1.6; width: 100%; height: 90px; overflow: hidden;
-            background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 5px;
-            text-shadow: 0 0 5px #39ff14;
+        /* --- VIEW 2: COUNTDOWN / HACKING --- */
+        .countdown-view {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            text-align: center;
         }
 
-        .glitch-effect { animation: glitchVip 0.3s infinite; }
-        @keyframes glitchVip {
-            0% { transform: translate(0) skew(0deg); opacity: 1; }
-            20% { transform: translate(-2px, 2px) skew(-10deg); }
-            40% { transform: translate(2px, -2px) skew(10deg); }
-            60% { transform: translate(-2px, -2px) skew(-5deg); }
-            80% { transform: translate(2px, 2px) skew(5deg); }
-            100% { transform: translate(0) skew(0deg); }
+        .hack-status {
+            font-size: 1.2rem;
+            color: var(--hack-green);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        footer { font-size: 0.7rem; color: #666; text-align: center; padding-bottom: 20px; width: 100%; }
+        .timer-big {
+            font-size: 5rem;
+            color: #fff;
+            text-shadow: 0 0 20px var(--hack-green);
+            border: 4px solid var(--hack-green);
+            padding: 20px 40px;
+            border-radius: 10px;
+            background: rgba(0,0,0,0.8);
+            margin-bottom: 20px;
+        }
+
+        .progress-bar-2min {
+            width: 80%;
+            height: 10px;
+            background: #333;
+            border-radius: 5px;
+            overflow: hidden;
+            border: 1px solid var(--hack-green);
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: var(--hack-green);
+            width: 100%;
+            transition: width 1s linear;
+        }
+
+        .hidden { display: none !important; }
+
+        /* ANIMATIONS */
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
     </style>
 </head>
 <body>
 
+    <!-- Background Matrix Effect Canvas -->
+    <canvas id="matrix-container"></canvas>
+
+    <!-- Start Screen -->
     <div id="start-screen">
-        <h1 class="start-title">MAHTAB<br><span style="font-size:1.5rem">ALGORITHM VIP</span></h1>
-        <button class="start-btn" id="start-btn">ACCESS SYSTEM</button>
+        <h1 class="start-title">MAHTAB HACK V5</h1>
+        <button class="start-btn" id="start-btn">ACTIVATE SYSTEM</button>
     </div>
 
+    <!-- Main Content -->
     <div id="main-content" class="hidden">
         <header>
-            <h1>MAHTAB VIP</h1>
-            <div class="vip-badge">3x SECURE PREDICTION</div>
+            <h1>MAHTAB ALGORITHM</h1>
         </header>
 
-        <main>
-            <div class="timer-container">
-                <div class="timer-bar" id="timer-bar"></div>
-            </div>
-
-            <div class="analysis-text" id="analysis-status">CONNECTING TO VIP SERVER...</div>
-
-            <!-- PREDICTION CARD -->
-            <div class="hack-card prediction-card" id="prediction-card">
-                <div class="prediction-label">PREDICTED RESULT (SEC)</div>
-                <div class="result-display">
-                    <div class="color-circle" id="color-circle">--</div>
-                    <div class="number-display" id="digit-display">?</div>
+        <div class="view-container">
+            
+            <!-- VIEW 1: RESULT -->
+            <div id="view-result" class="result-view">
+                <div class="prediction-card">
+                    <div class="prediction-label">SYSTEM PREDICTION</div>
+                    <div class="result-box">
+                        <!-- Only Color Circle Here -->
+                        <div class="color-circle" id="color-circle">--</div>
+                    </div>
                 </div>
             </div>
 
-            <!-- HACKING CARD -->
-            <div class="hack-card hacking-card hidden" id="hacking-card">
-                <div class="hacking-text">DECRYPTING NEXT BLOCK...</div>
-                <div class="matrix-code" id="matrix-code">INITIALIZING...</div>
+            <!-- VIEW 2: COUNTDOWN -->
+            <div id="view-countdown" class="countdown-view">
+                <div class="hack-status">DECRYPTING NEXT PATTERN</div>
+                <div class="timer-big" id="countdown-timer">02:00</div>
+                <div class="progress-bar-2min">
+                    <div class="progress-fill" id="progress-fill"></div>
+                </div>
             </div>
-        </main>
 
-        <footer>
-            <p>MAHTAB VIP PROTOCOL v5.0<br>SECOND-BASED ALGORITHM</p>
-        </footer>
+        </div>
     </div>
 
     <script>
+        // --- 1. AUDIO SYSTEM (Web Audio API - No files needed) ---
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx;
+
+        function initAudio() {
+            if (!audioCtx) audioCtx = new AudioContext();
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+        }
+
+        function playTone(freq, type, duration) {
+            if (!audioCtx) return;
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = type;
+            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + duration);
+        }
+
+        function playTickSound() {
+            // Short high tick
+            playTone(800, 'sine', 0.1);
+        }
+
+        function playSuccessSound() {
+            // Success Chord
+            setTimeout(() => playTone(440, 'triangle', 0.5), 0);
+            setTimeout(() => playTone(554, 'triangle', 0.5), 100);
+            setTimeout(() => playTone(659, 'triangle', 0.8), 200);
+        }
+
+        // --- 2. MATRIX BACKGROUND ANIMATION ---
+        const canvas = document.getElementById('matrix-container');
+        const ctx = canvas.getContext('2d');
+        let width, height;
+        let columns;
+        let drops = [];
+
+        function resizeCanvas() {
+            width = canvas.width = window.innerWidth;
+            height = canvas.height = window.innerHeight;
+            const fontSize = 14;
+            columns = width / fontSize;
+            drops = [];
+            for (let i = 0; i < columns; i++) {
+                drops[i] = 1;
+            }
+        }
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+            ctx.fillRect(0, 0, width, height);
+            ctx.fillStyle = '#0F0';
+            ctx.font = '14px monospace';
+            
+            for (let i = 0; i < drops.length; i++) {
+                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
+                ctx.fillText(text, i * 14, drops[i] * 14);
+                if (drops[i] * 14 > height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+            requestAnimationFrame(drawMatrix);
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+        drawMatrix();
+
+        // --- 3. APP LOGIC ---
+        
         const startScreen = document.getElementById('start-screen');
         const mainContent = document.getElementById('main-content');
         const startBtn = document.getElementById('start-btn');
-        const predictionCard = document.getElementById('prediction-card');
-        const hackingCard = document.getElementById('hacking-card');
-        const matrixCodeEl = document.getElementById('matrix-code');
-        const timerBarEl = document.getElementById('timer-bar');
-        const analysisTextEl = document.getElementById('analysis-status');
-        const colorCircleEl = document.getElementById('color-circle');
-        const digitDisplayEl = document.getElementById('digit-display');
+        const viewResult = document.getElementById('view-result');
+        const viewCountdown = document.getElementById('view-countdown');
+        
+        const colorCircle = document.getElementById('color-circle');
+        const countdownTimer = document.getElementById('countdown-timer');
+        const progressFill = document.getElementById('progress-fill');
 
         let isRunning = false;
-        let hackingInterval = null;
-        let currentCycle = -1; // 0: 0-10s, 1: 10-15s, 2: 15-25s, 3: 25-30s, 4: 30-40s, 5: 40-60s
+        let countdownInterval = null;
+        let currentSeconds = 120; // 2 minutes
 
-        const analysisMessages = [
-            "SYNCING WITH TIME SERVER...",
-            "ANALYZING SECOND HASH...",
-            "CALCULATING PROBABILITY...",
-            "DECRYPTING PATTERN...",
-            "RESULT READY..."
-        ];
-
+        // Start Logic
         startBtn.addEventListener('click', () => {
-            startScreen.style.opacity = '0';
-            setTimeout(() => { startScreen.style.display = 'none'; mainContent.classList.remove('hidden'); }, 800);
+            initAudio(); // Unlock Audio
+            startScreen.style.display = 'none';
+            mainContent.classList.remove('hidden');
             isRunning = true;
-            updateApp();
-            setInterval(updateApp, 50);
+            
+            // Start First Cycle
+            showResult();
         });
 
-        function startHackingAnimation() {
-            hackingCard.classList.remove('hidden');
-            hackingInterval = setInterval(() => {
-                const chars = "ABCDEF0123456789";
-                let code = "";
-                for(let i=0; i<40; i++) {
-                    if(i % 5 === 0) code += "<span style='color:#FFD700'>VIP</span> ";
-                    else code += chars.charAt(Math.floor(Math.random() * chars.length)) + " ";
-                }
-                matrixCodeEl.innerHTML = code;
-            }, 60);
-        }
+        function showResult() {
+            // Switch View
+            viewCountdown.classList.add('hidden');
+            viewCountdown.style.display = 'none';
+            viewResult.classList.remove('hidden');
+            viewResult.style.display = 'flex';
 
-        function stopHackingAnimation() {
-            if (hackingInterval) clearInterval(hackingInterval);
-            hackingCard.classList.add('hidden');
-        }
-
-        function triggerResult(predictedSecond) {
-            stopHackingAnimation();
-            predictionCard.classList.remove('hidden');
-
-            // Logic: Odd = Green, Even = Red
-            const isOdd = predictedSecond % 2 !== 0;
-            let colorName = isOdd ? "GREEN" : "RED";
-            let colorClass = isOdd ? "bg-green" : "bg-red";
-            let colorCode = isOdd ? "#39ff14" : "#ff073a";
-
-            // Update Circle
-            colorCircleEl.className = `color-circle ${colorClass}`;
-            colorCircleEl.textContent = colorName;
-
-            // Number Animation
-            digitDisplayEl.classList.add('glitch-effect');
-            let shuffleCount = 0;
-            const shuffleInterval = setInterval(() => {
-                digitDisplayEl.textContent = Math.floor(Math.random() * 10);
-                shuffleCount++;
-                if (shuffleCount > 20) {
-                    clearInterval(shuffleInterval);
-                    digitDisplayEl.classList.remove('glitch-effect');
-                    digitDisplayEl.textContent = predictedSecond;
-                    digitDisplayEl.style.color = colorCode;
-                    digitDisplayEl.style.textShadow = `0 0 40px ${colorCode}, 0 0 10px #fff`;
-                    setTimeout(() => { digitDisplayEl.style.textShadow = "none"; }, 800);
-                }
-            }, 50);
-        }
-
-        function updateApp() {
-            if (!isRunning) return;
+            // 1. Calculate Logic (Simulated based on Time)
             const now = new Date();
-            const s = now.getSeconds();
-            const ms = now.getMilliseconds();
+            const minute = now.getMinutes();
+            const lastDigit = minute % 10; // Last digit logic
+            
+            // Logic: Odd = Green, Even = Red
+            let colorName = lastDigit % 2 !== 0 ? "GREEN" : "RED";
+            let colorClass = lastDigit % 2 !== 0 ? "bg-green" : "bg-red";
 
-            // Progress Bar (0 to 60 seconds loop)
-            const totalMs = (s * 1000) + ms;
-            const percentage = (totalMs / 60000) * 100;
-            timerBarEl.style.width = `${100 - percentage}%`;
+            // Update UI
+            colorCircle.className = `color-circle ${colorClass}`;
+            colorCircle.textContent = colorName;
 
-            // Analysis Text
-            const msgIndex = Math.floor(now.getTime() / 2500) % analysisMessages.length;
-            analysisTextEl.textContent = analysisMessages[msgIndex];
+            // 2. Play Success Sound
+            playSuccessSound();
 
-            // --- CYCLE LOGIC (3 Results per Minute) ---
-            // Cycle 0: 0 - 10s : Show Result for 0
-            // Cycle 1: 10 - 15s : Hide/Hack
-            // Cycle 2: 15 - 25s : Show Result for 15
-            // Cycle 3: 25 - 30s : Hide/Hack
-            // Cycle 4: 30 - 40s : Show Result for 30
-            // Cycle 5: 40 - 60s : Hide/Hack
+            // 3. Wait 10 Seconds then go to Countdown
+            setTimeout(() => {
+                if (!isRunning) return;
+                startCountdown();
+            }, 10000);
+        }
 
-            let newCycle = 5; // Default to Hide
-            let targetSecond = -1;
+        function startCountdown() {
+            // Switch View
+            viewResult.classList.add('hidden');
+            viewResult.style.display = 'none';
+            viewCountdown.classList.remove('hidden');
+            viewCountdown.style.display = 'flex';
 
-            if (s >= 0 && s < 10) { newCycle = 0; targetSecond = 0; }
-            else if (s >= 10 && s < 15) { newCycle = 1; }
-            else if (s >= 15 && s < 25) { newCycle = 2; targetSecond = 15; }
-            else if (s >= 25 && s < 30) { newCycle = 3; }
-            else if (s >= 30 && s < 40) { newCycle = 4; targetSecond = 30; }
-            else { newCycle = 5; }
+            // Reset Timer
+            currentSeconds = 120; // 2 minutes
+            updateTimerUI();
 
-            // Detect Cycle Change
-            if (newCycle !== currentCycle) {
-                currentCycle = newCycle;
+            // Clear previous interval if any
+            if (countdownInterval) clearInterval(countdownInterval);
 
-                if (targetSecond !== -1) {
-                    // Start Show Result
-                    triggerResult(targetSecond);
-                } else {
-                    // Hide & Hack
-                    predictionCard.classList.add('hidden');
-                    startHackingAnimation();
+            // Start Interval
+            countdownInterval = setInterval(() => {
+                currentSeconds--;
+                
+                // Play tick every second
+                playTickSound();
+
+                updateTimerUI();
+
+                if (currentSeconds <= 0) {
+                    clearInterval(countdownInterval);
+                    // Go back to Result Phase
+                    showResult();
                 }
+            }, 1000);
+        }
+
+        function updateTimerUI() {
+            // Format MM:SS
+            const m = Math.floor(currentSeconds / 60);
+            const s = currentSeconds % 60;
+            const timeStr = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+            
+            countdownTimer.textContent = timeStr;
+
+            // Update Progress Bar
+            const percentage = (currentSeconds / 120) * 100;
+            progressFill.style.width = `${percentage}%`;
+            
+            // Visual urgency (Red color in last 10 seconds)
+            if (currentSeconds < 10) {
+                countdownTimer.style.color = '#e74c3c';
+                countdownTimer.style.borderColor = '#e74c3c';
+                progressFill.style.backgroundColor = '#e74c3c';
+            } else {
+                countdownTimer.style.color = '#fff';
+                countdownTimer.style.borderColor = '#0f0';
+                progressFill.style.backgroundColor = '#0f0';
             }
         }
+
     </script>
 </body>
 </html>
