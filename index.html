@@ -2,464 +2,533 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>MAHTAB ALGORITHM HACK</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAHTAB AI HACK</title>
     <style>
-        :root {
-            --bg-color: #000000;
-            --card-bg: rgba(20, 20, 20, 0.9);
-            --text-color: #ffffff;
-            --green: #2ecc71;
-            --red: #e74c3c;
-            --violet: #9b59b6;
-            --accent: #f1c40f;
-            --hack-green: #0f0;
-            --font-main: 'Courier New', Courier, monospace; /* Hacker Font */
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            user-select: none;
+            box-sizing: border-box;
         }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: var(--font-main);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             min-height: 100vh;
-            overflow: hidden; /* Prevent scroll on matrix effect */
-        }
-
-        /* --- MATRIX RAIN BACKGROUND --- */
-        #matrix-container {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            z-index: 0;
-            opacity: 0.2; /* Subtle background */
-            pointer-events: none;
-        }
-
-        /* --- START SCREEN --- */
-        #start-screen {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background-color: #000;
+            background: linear-gradient(135deg, #1a0f00 0%, #4a3000 50%, #1a0f00 100%);
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            z-index: 999;
-        }
-
-        .start-title {
-            font-size: 2rem;
-            color: var(--hack-green);
-            margin-bottom: 40px;
-            text-transform: uppercase;
-            text-shadow: 0 0 10px var(--hack-green);
-            animation: glitch 1s infinite;
-        }
-
-        .start-btn {
-            padding: 20px 50px;
-            font-size: 1.5rem;
-            background: transparent;
-            color: var(--hack-green);
-            border: 2px solid var(--hack-green);
-            border-radius: 5px;
-            cursor: pointer;
-            font-family: var(--font-main);
-            text-transform: uppercase;
-            box-shadow: 0 0 15px var(--hack-green);
-            transition: all 0.2s;
-        }
-
-        .start-btn:active {
-            background: var(--hack-green);
-            color: #000;
-        }
-
-        /* --- MAIN APP UI --- */
-        #main-content {
-            width: 100%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            z-index: 10;
-            position: relative;
-        }
-
-        header {
-            width: 100%;
-            padding: 15px 0;
-            text-align: center;
-            background: rgba(0,0,0,0.8);
-            border-bottom: 1px solid var(--hack-green);
-        }
-
-        h1 {
-            font-size: 1.2rem;
-            color: var(--accent);
-            letter-spacing: 2px;
-            text-shadow: 0 0 5px var(--accent);
-        }
-
-        /* Container for switching views */
-        .view-container {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             padding: 20px;
         }
 
-        /* --- VIEW 1: RESULT CARD --- */
-        .result-view {
-            display: none;
-            flex-direction: column;
-            align-items: center;
+        .container {
             width: 100%;
-            animation: fadeIn 0.5s;
-        }
-
-        .prediction-card {
-            background: var(--card-bg);
-            border: 2px solid var(--hack-green);
-            border-radius: 15px;
-            padding: 40px 20px;
-            width: 90%;
             max-width: 400px;
+        }
+
+        .header {
             text-align: center;
-            box-shadow: 0 0 30px rgba(0, 255, 0, 0.2);
-            position: relative;
-        }
-
-        .prediction-label {
-            font-size: 1rem;
-            color: #aaa;
             margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .result-box {
+        .header h1 {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 8px;
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+        }
+
+        .header span {
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header p {
+            color: #d4af37;
+            font-size: 0.9rem;
+        }
+
+        .card {
+            background: rgba(255, 215, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 215, 0, 0.2);
+        }
+
+        .start-btn {
+            width: 100%;
+            padding: 18px 32px;
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #1a0f00;
+            background: linear-gradient(135deg, #ffd700, #ffaa00);
+            border: none;
+            border-radius: 16px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 20px;
-            /* No gap needed now */
+            gap: 10px;
         }
 
-        .color-circle {
-            width: 130px; height: 130px; /* Bigger Circle */
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 1.8rem; font-weight: bold; /* Larger Text */
-            border: 5px solid rgba(255,255,255,0.2);
-            box-shadow: 0 0 40px currentColor; /* Bigger Glow */
+        .start-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 215, 0, 0.6);
         }
 
-        .bg-green { background-color: var(--green); color: white; }
-        .bg-red { background-color: var(--red); color: white; }
-        .bg-violet { background-color: var(--violet); color: white; }
+        .start-btn svg {
+            width: 24px;
+            height: 24px;
+        }
 
-        /* --- VIEW 2: COUNTDOWN / HACKING --- */
-        .countdown-view {
+        .hint {
+            text-align: center;
+            color: #d4af37;
+            margin-top: 16px;
+            font-size: 0.85rem;
+        }
+
+        .prediction-display {
             display: none;
-            flex-direction: column;
+        }
+
+        .prediction-display.active {
+            display: block;
+        }
+
+        .time-display {
+            display: none;
+        }
+
+        .digit-info {
+            display: none;
+        }
+
+        .prediction-label {
+            text-align: center;
+            color: #d4af37;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+            display: flex;
             align-items: center;
-            width: 100%;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        .prediction-label svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .prediction-result {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 900;
+            padding: 30px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            transition: all 0.5s ease;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .prediction-result.green {
+            background: linear-gradient(135deg, #4ade80, #16a34a);
+            color: white;
+            box-shadow: 0 10px 40px rgba(74, 222, 128, 0.4);
+        }
+
+        .prediction-result.red {
+            background: linear-gradient(135deg, #f87171, #dc2626);
+            color: white;
+            box-shadow: 0 10px 40px rgba(248, 113, 113, 0.4);
+        }
+
+        .wait-message {
+            text-align: center;
+            font-size: 2.5rem;
+            font-weight: 900;
+            padding: 40px 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #4a3000, #2a1a00);
+            color: #ffd700;
+            border: 2px solid rgba(255, 215, 0, 0.3);
+            box-shadow: 0 10px 40px rgba(255, 215, 0, 0.2);
+            display: none;
+        }
+
+        .wait-message.active {
+            display: block;
+            animation: pulse 1.5s infinite;
+        }
+
+        .countdown-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+
+        .countdown-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            color: #ffd700;
+            font-size: 0.85rem;
+            margin-bottom: 10px;
+        }
+
+        .countdown-header svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        .countdown-time {
             text-align: center;
         }
 
-        .hack-status {
-            font-size: 1.2rem;
-            color: var(--hack-green);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 2px;
+        .countdown-time .seconds {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffd700;
         }
 
-        .timer-big {
-            font-size: 5rem;
-            color: #fff;
-            text-shadow: 0 0 20px var(--hack-green);
-            border: 4px solid var(--hack-green);
-            padding: 20px 40px;
-            border-radius: 10px;
-            background: rgba(0,0,0,0.8);
-            margin-bottom: 20px;
+        .countdown-time .text {
+            color: #d4af37;
+            font-size: 0.9rem;
         }
 
-        .progress-bar-2min {
-            width: 80%;
-            height: 10px;
-            background: #333;
-            border-radius: 5px;
+        .progress-bar {
+            margin-top: 12px;
+            height: 8px;
+            background: #3d3000;
+            border-radius: 4px;
             overflow: hidden;
-            border: 1px solid var(--hack-green);
         }
 
         .progress-fill {
             height: 100%;
-            background: var(--hack-green);
-            width: 100%;
+            background: linear-gradient(90deg, #ffd700, #ffaa00);
+            border-radius: 4px;
             transition: width 1s linear;
         }
 
-        .hidden { display: none !important; }
-
-        /* ANIMATIONS */
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-        @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+        .status {
+            text-align: center;
+            color: #d4af37;
+            font-size: 0.75rem;
+            margin-top: 16px;
         }
 
+        .footer {
+            text-align: center;
+            color: #b8860b;
+            font-size: 0.75rem;
+            margin-top: 20px;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.3); }
+            50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); }
+        }
+
+        .glow-effect {
+            animation: glow 2s infinite;
+        }
     </style>
 </head>
 <body>
+    <div class="container">
+        <div class="header">
+            <h1>MAHTAB <span>AI HACK</span></h1>
+            <p>NOTE - ALWAYS 3/4 LEVEL MAINTAIN </p>
+        </div>
 
-    <!-- Background Matrix Effect Canvas -->
-    <canvas id="matrix-container"></canvas>
+        <div class="card">
+            <!-- Start Screen -->
+            <div id="startScreen">
+                <button class="start-btn glow-effect" onclick="startHack()">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polygon points="5 3 19 12 5 21 5 3"></polygon>
+                    </svg>
+                    START HACK
+                </button>
+                <p class="hint">Click to start mahtab hack</p>
+            </div>
 
-    <!-- Start Screen -->
-    <div id="start-screen">
-        <h1 class="start-title">MAHTAB HACK V5</h1>
-        <button class="start-btn" id="start-btn">ACTIVATE SYSTEM</button>
-    </div>
+            <!-- Prediction Display -->
+            <div id="predictionDisplay" class="prediction-display">
+                <div class="time-display">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <polyline points="12 6 12 12 16 14"></polyline>
+                    </svg>
+                    <span class="time" id="currentTime">00:00:00</span>
+                </div>
 
-    <!-- Main Content -->
-    <div id="main-content" class="hidden">
-        <header>
-            <h1>MAHTAB ALGORITHM</h1>
-        </header>
+                <div class="digit-info">
+                    Minute Last Digit: <span id="lastDigit">-</span>
+                </div>
 
-        <div class="view-container">
-            
-            <!-- VIEW 1: RESULT -->
-            <div id="view-result" class="result-view">
-                <div class="prediction-card">
-                    <div class="prediction-label">SYSTEM PREDICTION</div>
-                    <div class="result-box">
-                        <!-- Only Color Circle Here -->
-                        <div class="color-circle" id="color-circle">--</div>
+                <div class="prediction-label">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                        <polyline points="17 6 23 6 23 12"></polyline>
+                    </svg>
+                    CURRENT PREDICTION
+                </div>
+
+                <div class="prediction-result" id="predictionResult">-</div>
+                <div class="wait-message" id="waitMessage">WAIT FOR NEXT</div>
+
+                <div class="countdown-box">
+                    <div class="countdown-header">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <line x1="12" y1="8" x2="12" y2="12"></line>
+                            <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                        </svg>
+                        Next Prediction In
+                    </div>
+                    <div class="countdown-time">
+                        <span class="seconds" id="countdown">60</span>
+                        <span class="text">seconds</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill" style="width: 100%"></div>
                     </div>
                 </div>
-            </div>
 
-            <!-- VIEW 2: COUNTDOWN -->
-            <div id="view-countdown" class="countdown-view">
-                <div class="hack-status">DECRYPTING NEXT PATTERN</div>
-                <div class="timer-big" id="countdown-timer">02:00</div>
-                <div class="progress-bar-2min">
-                    <div class="progress-fill" id="progress-fill"></div>
-                </div>
+                <div class="status pulse">Mahtab Ai Hack Prediction running...</div>
             </div>
+        </div>
 
+        <div class="footer">
+            POWERED BY -MAHTAB KHAN JAMALI
         </div>
     </div>
 
     <script>
-        // --- 1. AUDIO SYSTEM (Web Audio API - No files needed) ---
-        const AudioContext = window.AudioContext || window.webkitAudioContext;
-        let audioCtx;
+        let intervalId = null;
+        let countdownId = null;
+        let countdown = 60;
+        let audioContext = null;
+        let hideTimeoutId = null;
 
+        // Initialize audio context
         function initAudio() {
-            if (!audioCtx) audioCtx = new AudioContext();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-        }
-
-        function playTone(freq, type, duration) {
-            if (!audioCtx) return;
-            const osc = audioCtx.createOscillator();
-            const gainNode = audioCtx.createGain();
-            osc.type = type;
-            osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-            gainNode.gain.setValueAtTime(0.1, audioCtx.currentTime);
-            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
-            osc.connect(gainNode);
-            gainNode.connect(audioCtx.destination);
-            osc.start();
-            osc.stop(audioCtx.currentTime + duration);
-        }
-
-        function playTickSound() {
-            // Short high tick
-            playTone(800, 'sine', 0.1);
-        }
-
-        function playSuccessSound() {
-            // Success Chord
-            setTimeout(() => playTone(440, 'triangle', 0.5), 0);
-            setTimeout(() => playTone(554, 'triangle', 0.5), 100);
-            setTimeout(() => playTone(659, 'triangle', 0.8), 200);
-        }
-
-        // --- 2. MATRIX BACKGROUND ANIMATION ---
-        const canvas = document.getElementById('matrix-container');
-        const ctx = canvas.getContext('2d');
-        let width, height;
-        let columns;
-        let drops = [];
-
-        function resizeCanvas() {
-            width = canvas.width = window.innerWidth;
-            height = canvas.height = window.innerHeight;
-            const fontSize = 14;
-            columns = width / fontSize;
-            drops = [];
-            for (let i = 0; i < columns; i++) {
-                drops[i] = 1;
+            if (!audioContext) {
+                audioContext = new (window.AudioContext || window.webkitAudioContext)();
             }
         }
 
-        function drawMatrix() {
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, width, height);
-            ctx.fillStyle = '#0F0';
-            ctx.font = '14px monospace';
+        // Play start sound - futuristic beep sequence
+        function playStartSound() {
+            initAudio();
+            const now = audioContext.currentTime;
             
-            for (let i = 0; i < drops.length; i++) {
-                const text = String.fromCharCode(0x30A0 + Math.random() * 96);
-                ctx.fillText(text, i * 14, drops[i] * 14);
-                if (drops[i] * 14 > height && Math.random() > 0.975) {
-                    drops[i] = 0;
-                }
-                drops[i]++;
-            }
-            requestAnimationFrame(drawMatrix);
+            // Create multiple oscillators for a rich sound
+            const freqs = [523.25, 659.25, 783.99, 1046.50]; // C major arpeggio
+            
+            freqs.forEach((freq, i) => {
+                const osc = audioContext.createOscillator();
+                const gain = audioContext.createGain();
+                
+                osc.connect(gain);
+                gain.connect(audioContext.destination);
+                
+                osc.frequency.value = freq;
+                osc.type = 'sine';
+                
+                gain.gain.setValueAtTime(0, now + i * 0.1);
+                gain.gain.linearRampToValueAtTime(0.3, now + i * 0.1 + 0.05);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.3);
+                
+                osc.start(now + i * 0.1);
+                osc.stop(now + i * 0.1 + 0.3);
+            });
         }
 
-        window.addEventListener('resize', resizeCanvas);
-        resizeCanvas();
-        drawMatrix();
-
-        // --- 3. APP LOGIC ---
-        
-        const startScreen = document.getElementById('start-screen');
-        const mainContent = document.getElementById('main-content');
-        const startBtn = document.getElementById('start-btn');
-        const viewResult = document.getElementById('view-result');
-        const viewCountdown = document.getElementById('view-countdown');
-        
-        const colorCircle = document.getElementById('color-circle');
-        const countdownTimer = document.getElementById('countdown-timer');
-        const progressFill = document.getElementById('progress-fill');
-
-        let isRunning = false;
-        let countdownInterval = null;
-        let currentSeconds = 120; // 2 minutes
-
-        // Start Logic
-        startBtn.addEventListener('click', () => {
-            initAudio(); // Unlock Audio
-            startScreen.style.display = 'none';
-            mainContent.classList.remove('hidden');
-            isRunning = true;
+        // Play result sound - different for GREEN and RED
+        function playResultSound(isGreen) {
+            initAudio();
+            const now = audioContext.currentTime;
             
-            // Start First Cycle
-            showResult();
-        });
+            if (isGreen) {
+                // GREEN sound - ascending happy chime
+                const freqs = [523.25, 659.25, 783.99, 1046.50];
+                freqs.forEach((freq, i) => {
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    
+                    osc.frequency.value = freq;
+                    osc.type = 'triangle';
+                    
+                    gain.gain.setValueAtTime(0, now + i * 0.08);
+                    gain.gain.linearRampToValueAtTime(0.25, now + i * 0.08 + 0.03);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.08 + 0.4);
+                    
+                    osc.start(now + i * 0.08);
+                    osc.stop(now + i * 0.08 + 0.4);
+                });
+            } else {
+                // RED sound - descending alert
+                const freqs = [880, 698.46, 587.33, 493.88];
+                freqs.forEach((freq, i) => {
+                    const osc = audioContext.createOscillator();
+                    const gain = audioContext.createGain();
+                    
+                    osc.connect(gain);
+                    gain.connect(audioContext.destination);
+                    
+                    osc.frequency.value = freq;
+                    osc.type = 'sawtooth';
+                    
+                    gain.gain.setValueAtTime(0, now + i * 0.1);
+                    gain.gain.linearRampToValueAtTime(0.2, now + i * 0.1 + 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.01, now + i * 0.1 + 0.35);
+                    
+                    osc.start(now + i * 0.1);
+                    osc.stop(now + i * 0.1 + 0.35);
+                });
+            }
+        }
+
+        // Play countdown warning sound - ticking beeps when few seconds left
+        function playCountdownSound(secondsLeft) {
+            initAudio();
+            const now = audioContext.currentTime;
+            
+            // Different pitch based on seconds left
+            const freq = secondsLeft <= 3 ? 1200 : 800;
+            
+            const osc = audioContext.createOscillator();
+            const gain = audioContext.createGain();
+            
+            osc.connect(gain);
+            gain.connect(audioContext.destination);
+            
+            osc.frequency.value = freq;
+            osc.type = 'square';
+            
+            gain.gain.setValueAtTime(0, now);
+            gain.gain.linearRampToValueAtTime(0.15, now + 0.02);
+            gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+            
+            osc.start(now);
+            osc.stop(now + 0.1);
+        }
+
+        function getPrediction(minute) {
+            const lastDigit = minute % 10;
+            // Odd digits = GREEN, Even digits = RED
+            const isGreen = [1, 3, 5, 7, 9].includes(lastDigit);
+            return { prediction: isGreen ? 'GREEN' : 'RED', lastDigit, isGreen };
+        }
 
         function showResult() {
-            // Switch View
-            viewCountdown.classList.add('hidden');
-            viewCountdown.style.display = 'none';
-            viewResult.classList.remove('hidden');
-            viewResult.style.display = 'flex';
-
-            // 1. Calculate Logic (Simulated based on Time)
-            const now = new Date();
-            const minute = now.getMinutes();
-            const lastDigit = minute % 10; // Last digit logic
+            const resultEl = document.getElementById('predictionResult');
+            const waitEl = document.getElementById('waitMessage');
             
-            // Logic: Odd = Green, Even = Red
-            let colorName = lastDigit % 2 !== 0 ? "GREEN" : "RED";
-            let colorClass = lastDigit % 2 !== 0 ? "bg-green" : "bg-red";
+            resultEl.style.display = 'block';
+            waitEl.classList.remove('active');
+        }
 
-            // Update UI
-            colorCircle.className = `color-circle ${colorClass}`;
-            colorCircle.textContent = colorName;
+        function hideResult() {
+            const resultEl = document.getElementById('predictionResult');
+            const waitEl = document.getElementById('waitMessage');
+            
+            resultEl.style.display = 'none';
+            waitEl.classList.add('active');
+        }
 
-            // 2. Play Success Sound
-            playSuccessSound();
-
-            // 3. Wait 10 Seconds then go to Countdown
-            setTimeout(() => {
-                if (!isRunning) return;
-                startCountdown();
+        function updateDisplay() {
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0');
+            const minutes = now.getMinutes().toString().padStart(2, '0');
+            const seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            document.getElementById('currentTime').textContent = `${hours}:${minutes}:${seconds}`;
+            
+            const { prediction, lastDigit, isGreen } = getPrediction(now.getMinutes());
+            document.getElementById('lastDigit').textContent = lastDigit;
+            
+            const resultEl = document.getElementById('predictionResult');
+            resultEl.textContent = prediction;
+            resultEl.className = 'prediction-result ' + (prediction === 'GREEN' ? 'green' : 'red');
+            
+            // Show result
+            showResult();
+            
+            // Play result sound
+            playResultSound(isGreen);
+            
+            // Clear any existing timeout
+            if (hideTimeoutId) {
+                clearTimeout(hideTimeoutId);
+            }
+            
+            // Hide result after 10 seconds and show "WAIT FOR NEXT"
+            hideTimeoutId = setTimeout(() => {
+                hideResult();
             }, 10000);
         }
 
-        function startCountdown() {
-            // Switch View
-            viewResult.classList.add('hidden');
-            viewResult.style.display = 'none';
-            viewCountdown.classList.remove('hidden');
-            viewCountdown.style.display = 'flex';
-
-            // Reset Timer
-            currentSeconds = 120; // 2 minutes
-            updateTimerUI();
-
-            // Clear previous interval if any
-            if (countdownInterval) clearInterval(countdownInterval);
-
-            // Start Interval
-            countdownInterval = setInterval(() => {
-                currentSeconds--;
-                
-                // Play tick every second
-                playTickSound();
-
-                updateTimerUI();
-
-                if (currentSeconds <= 0) {
-                    clearInterval(countdownInterval);
-                    // Go back to Result Phase
-                    showResult();
-                }
-            }, 1000);
-        }
-
-        function updateTimerUI() {
-            // Format MM:SS
-            const m = Math.floor(currentSeconds / 60);
-            const s = currentSeconds % 60;
-            const timeStr = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
+        function updateCountdown() {
+            countdown--;
+            if (countdown < 0) {
+                countdown = 60;
+                updateDisplay();
+            }
+            document.getElementById('countdown').textContent = countdown;
+            document.getElementById('progressFill').style.width = (countdown / 60 * 100) + '%';
             
-            countdownTimer.textContent = timeStr;
-
-            // Update Progress Bar
-            const percentage = (currentSeconds / 120) * 100;
-            progressFill.style.width = `${percentage}%`;
-            
-            // Visual urgency (Red color in last 10 seconds)
-            if (currentSeconds < 10) {
-                countdownTimer.style.color = '#e74c3c';
-                countdownTimer.style.borderColor = '#e74c3c';
-                progressFill.style.backgroundColor = '#e74c3c';
-            } else {
-                countdownTimer.style.color = '#fff';
-                countdownTimer.style.borderColor = '#0f0';
-                progressFill.style.backgroundColor = '#0f0';
+            // Play countdown sound when 5 seconds or less remaining
+            if (countdown > 0 && countdown <= 5) {
+                playCountdownSound(countdown);
             }
         }
 
+        function startHack() {
+            // Play start sound
+            playStartSound();
+            
+            document.getElementById('startScreen').style.display = 'none';
+            document.getElementById('predictionDisplay').classList.add('active');
+            
+            // Initial update
+            updateDisplay();
+            
+            // Sync countdown to next minute
+            const now = new Date();
+            countdown = 60 - now.getSeconds();
+            document.getElementById('countdown').textContent = countdown;
+            
+            // Update every minute
+            intervalId = setInterval(updateDisplay, 60000);
+            
+            // Countdown every second
+            countdownId = setInterval(updateCountdown, 1000);
+        }
     </script>
 </body>
 </html>
